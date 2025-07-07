@@ -1,2 +1,2 @@
-# Godot Tutorial Demo Spiel Desktop
-Demo Spiel "Otto der Käfer"  für die Platformen Desktop und Web
+# Godot Tutorial Demo Spiel für Mobile Geräte
+
