@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://bve1fq6vtyjqv"]
+
+[ext_resource type="Script" uid="uid://ctahd1wojqu22" path="res://stern.gd" id="1_wmgck"]
+[ext_resource type="Texture2D" uid="uid://feeclg25huw2" path="res://sprites/stern.png" id="2_f5dmv"]
+
+[node name="Sterne" type="Node2D"]
+
+[node name="Stern" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 9
+script = ExtResource("1_wmgck")
+
+[node name="Sprite2D" type="Sprite2D" parent="Stern"]
+texture = ExtResource("2_f5dmv")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Stern"]
+polygon = PackedVector2Array(-19, -52, 1, -28, 26, -47, 21, -15, 54, -8, 25, 9, 39, 37, 8, 23, -7, 54, -14, 21, -47, 27, -26, 3, -53, -19, -20, -19)
+
+[connection signal="area_entered" from="Stern" to="Stern" method="_on_area_entered"]
+[connection signal="body_entered" from="Stern" to="Stern" method="_on_body_entered"]

@@ -1,0 +1,155 @@
+[gd_scene load_steps=22 format=3 uid="uid://bg5v8dv75e7s5"]
+
+[ext_resource type="Script" uid="uid://cj3fy1jg3jx1v" path="res://playerCharacter.gd" id="1_g2vtq"]
+[ext_resource type="Texture2D" uid="uid://bvre6qa2oo0us" path="res://sprites/otto1.png" id="2_2fvbb"]
+[ext_resource type="Texture2D" uid="uid://dwlf6aqsu7h8b" path="res://sprites/otto2.png" id="3_ml7e8"]
+[ext_resource type="AudioStream" uid="uid://bhf7ank5q3wpn" path="res://sound/krabbeln.wav" id="4_ihjo1"]
+[ext_resource type="AudioStream" uid="uid://dgneaihnknjxd" path="res://sound/explosion.wav" id="5_dk1vr"]
+[ext_resource type="AudioStream" uid="uid://euv4su2pwr2l" path="res://sound/lebendig.wav" id="6_34jf3"]
+[ext_resource type="Texture2D" uid="uid://bs2cw6gktuef0" path="res://sprites/explosion.png" id="7_u7b46"]
+[ext_resource type="Texture2D" uid="uid://cwp7fkdaqrhi5" path="res://sprites/otto3.png" id="8_j4wxg"]
+[ext_resource type="Script" uid="uid://bduo4dhlbt53q" path="res://touchbuttons_left.gd" id="9_nvl01"]
+[ext_resource type="Texture2D" uid="uid://5n0wk7q2eikh" path="res://sprites/pfeiltastenHoch.png" id="10_bwjto"]
+[ext_resource type="Texture2D" uid="uid://c8y1y6fc30ovh" path="res://sprites/pfeiltastenRunter.png" id="11_606se"]
+[ext_resource type="Script" uid="uid://camammv2thtxc" path="res://touchbuttons_right.gd" id="11_ivps1"]
+[ext_resource type="Texture2D" uid="uid://d1d0o3mtw5scw" path="res://sprites/pfeiltastenRechts.png" id="13_u1c27"]
+[ext_resource type="Texture2D" uid="uid://ru2u3fwj1o7s" path="res://sprites/pfeiltastenLinks.png" id="14_op7ga"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tj0vx"]
+radius = 31.0
+height = 82.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tj0vx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_2fvbb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ml7e8")
+}],
+"loop": true,
+"name": &"krabbeln",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b26j0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_u7b46")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_j4wxg")
+}],
+"loop": false,
+"name": &"explosion",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bwjto"]
+radius = 71.44
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_606se"]
+radius = 71.44
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u1c27"]
+radius = 71.44
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_op7ga"]
+radius = 71.44
+
+[node name="Player" type="Node2D"]
+z_index = 1
+metadata/_edit_horizontal_guides_ = [1172.0, 921.0]
+metadata/_edit_vertical_guides_ = [251.0]
+
+[node name="PlayerCharacter" type="CharacterBody2D" parent="."]
+position = Vector2(571, 201)
+collision_layer = 8
+collision_mask = 55
+script = ExtResource("1_g2vtq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCharacter"]
+position = Vector2(3, 2)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_tj0vx")
+
+[node name="AnimationKrabbeln" type="AnimatedSprite2D" parent="PlayerCharacter"]
+position = Vector2(9, 2)
+rotation = 1.5708
+sprite_frames = SubResource("SpriteFrames_tj0vx")
+animation = &"krabbeln"
+frame = 1
+frame_progress = 0.275775
+
+[node name="AudioKrabbeln" type="AudioStreamPlayer2D" parent="PlayerCharacter"]
+stream = ExtResource("4_ihjo1")
+
+[node name="AudioExplosion" type="AudioStreamPlayer2D" parent="PlayerCharacter"]
+stream = ExtResource("5_dk1vr")
+
+[node name="AudioLebendig" type="AudioStreamPlayer2D" parent="PlayerCharacter"]
+position = Vector2(2, 1)
+stream = ExtResource("6_34jf3")
+volume_db = 17.449
+
+[node name="AnimatedExplosion" type="AnimatedSprite2D" parent="PlayerCharacter"]
+visible = false
+rotation = 1.5708
+scale = Vector2(0.8, 0.8)
+sprite_frames = SubResource("SpriteFrames_b26j0")
+animation = &"explosion"
+frame = 1
+frame_progress = 1.0
+
+[node name="TouchbuttonsLeft" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 158.0
+offset_top = 572.0
+offset_right = 316.0
+offset_bottom = 906.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+script = ExtResource("9_nvl01")
+
+[node name="Up" type="TouchScreenButton" parent="TouchbuttonsLeft"]
+texture_normal = ExtResource("10_bwjto")
+shape = SubResource("CircleShape2D_bwjto")
+action = "move_up"
+
+[node name="Down" type="TouchScreenButton" parent="TouchbuttonsLeft"]
+position = Vector2(0, 156.667)
+scale = Vector2(1.01205, 1.00301)
+texture_normal = ExtResource("11_606se")
+shape = SubResource("CircleShape2D_606se")
+action = "move_down"
+
+[node name="TouchbuttonsRight" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1405.0
+offset_top = 811.0
+offset_right = 1777.0
+offset_bottom = 1053.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+script = ExtResource("11_ivps1")
+
+[node name="Right" type="TouchScreenButton" parent="TouchbuttonsRight"]
+position = Vector2(152.667, 0)
+texture_normal = ExtResource("13_u1c27")
+shape = SubResource("CircleShape2D_u1c27")
+action = "move_right"
+
+[node name="Left" type="TouchScreenButton" parent="TouchbuttonsRight"]
+texture_normal = ExtResource("14_op7ga")
+shape = SubResource("CircleShape2D_op7ga")
+action = "move_left"

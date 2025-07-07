@@ -1,0 +1,118 @@
+[gd_scene load_steps=11 format=3 uid="uid://dw4mp1ou4ni0y"]
+
+[ext_resource type="Script" uid="uid://bdvho2t2v30jn" path="res://game.gd" id="1_qpk70"]
+[ext_resource type="Texture2D" uid="uid://ceatydemct3oo" path="res://sprites/hintergrund.png" id="2_ryrav"]
+[ext_resource type="Texture2D" uid="uid://dewkkvq4cq41p" path="res://sprites/baumstamm.png" id="4_eow3j"]
+[ext_resource type="PackedScene" uid="uid://bg5v8dv75e7s5" path="res://player.tscn" id="4_yq8tf"]
+[ext_resource type="AudioStream" uid="uid://bp5a41r7ruvmj" path="res://sound/taler.wav" id="5_ym5sv"]
+[ext_resource type="AudioStream" uid="uid://btdkuqjymr0a5" path="res://sound/stern.wav" id="6_sng2h"]
+[ext_resource type="Texture2D" uid="uid://b2qmeywpn08kq" path="res://sprites/gameOver.png" id="7_eow3j"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ryrav"]
+font_size = 40
+font_color = Color(0.01, 0.01, 0.01, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_eow3j"]
+font_size = 40
+font_color = Color(0.01, 0.01, 0.01, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_j5wjh"]
+font_size = 40
+font_color = Color(0.01, 0.01, 0.01, 1)
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_qpk70")
+metadata/_edit_vertical_guides_ = [4491.0, 4737.0]
+metadata/_edit_horizontal_guides_ = [2353.0]
+
+[node name="GameOver" type="Sprite2D" parent="."]
+z_index = 3
+position = Vector2(1086, 515)
+scale = Vector2(0.922213, 0.851582)
+texture = ExtResource("7_eow3j")
+
+[node name="Hintergrund" type="Sprite2D" parent="."]
+position = Vector2(1501, 751)
+texture = ExtResource("2_ryrav")
+
+[node name="Baumstamm" type="StaticBody2D" parent="."]
+position = Vector2(901, 516)
+
+[node name="Sprite2D" type="Sprite2D" parent="Baumstamm"]
+position = Vector2(123, 37)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("4_eow3j")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Baumstamm"]
+position = Vector2(-129, 44)
+scale = Vector2(0.999839, 0.912753)
+polygon = PackedVector2Array(169.027, -53.6837, 68.0109, -52.5882, -17.0027, -42.7278, -69.0111, -43.8235, -120.019, -39.4411, -189.03, -37.2499, -215.035, -19.7205, -226.036, 4.38239, -226.036, 30.6765, -215.035, 59.1617, -186.03, 82.169, -12.002, 65.7352, 59.0095, 61.3529, 127.02, 60.2573, 228.037, 53.6838, 309.05, 50.397, 382.062, 47.1102, 593.096, 24.1029, 700.113, 25.1985, 718.116, 23.0073, 731.118, 4.38239, 736.119, -23.0073, 731.118, -51.4926, 721.116, -75.5955, 710.114, -89.8381, 694.112, -95.316, 376.061, -72.3087, 290.047, -64.6396)
+
+[node name="Player" parent="." instance=ExtResource("4_yq8tf")]
+position = Vector2(5, 4)
+
+[node name="KugelTimer" type="Timer" parent="."]
+wait_time = 3.927
+autostart = true
+
+[node name="SternTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="TalerTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="AudioTaler" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_ym5sv")
+volume_db = 17.449
+
+[node name="AudioStern" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_sng2h")
+volume_db = 17.449
+
+[node name="HUD" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 44.0
+offset_top = 12.0
+offset_right = 44.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LabelTaler" type="Label" parent="HUD"]
+z_index = 4
+layout_mode = 0
+offset_top = 41.0
+offset_right = 178.0
+offset_bottom = 96.0
+label_settings = SubResource("LabelSettings_ryrav")
+
+[node name="LabelSterne" type="Label" parent="HUD"]
+z_index = 4
+layout_mode = 0
+offset_top = 89.0
+offset_right = 178.0
+offset_bottom = 144.0
+label_settings = SubResource("LabelSettings_eow3j")
+
+[node name="LabelLeben" type="Label" parent="HUD"]
+z_index = 4
+layout_mode = 0
+offset_top = 137.0
+offset_right = 178.0
+offset_bottom = 192.0
+label_settings = SubResource("LabelSettings_j5wjh")
+
+[node name="LabelStufe" type="Label" parent="HUD"]
+z_index = 4
+layout_mode = 0
+offset_top = 185.0
+offset_right = 178.0
+offset_bottom = 240.0
+label_settings = SubResource("LabelSettings_j5wjh")
+
+[connection signal="timeout" from="KugelTimer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="SternTimer" to="." method="_on_stern_timer_timeout"]
+[connection signal="timeout" from="TalerTimer" to="." method="_on_taler_timer_timeout"]

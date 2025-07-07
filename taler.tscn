@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bstg1mygo65vi"]
+
+[ext_resource type="Script" uid="uid://b55tj4u674arg" path="res://taler.gd" id="1_n0xmv"]
+[ext_resource type="Texture2D" uid="uid://brh10bw5xunxp" path="res://sprites/taler.png" id="2_w8jvb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_n0xmv"]
+radius = 28.0179
+
+[node name="Taler" type="Node2D"]
+
+[node name="Taler" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 9
+script = ExtResource("1_n0xmv")
+
+[node name="Sprite2D" type="Sprite2D" parent="Taler"]
+texture = ExtResource("2_w8jvb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Taler"]
+shape = SubResource("CircleShape2D_n0xmv")
+
+[connection signal="body_entered" from="Taler" to="Taler" method="_on_body_entered"]

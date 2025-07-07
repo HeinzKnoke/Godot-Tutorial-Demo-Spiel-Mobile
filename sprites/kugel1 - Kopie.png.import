@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://peogvjf5u5jq"
+path="res://.godot/imported/kugel1 - Kopie.png-82fb6c18cc43adcedf19fe9a382b6367.res"
+
+[deps]
+
+source_file="res://sprites/kugel1 - Kopie.png"
+dest_files=["res://.godot/imported/kugel1 - Kopie.png-82fb6c18cc43adcedf19fe9a382b6367.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

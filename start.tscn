@@ -1,0 +1,212 @@
+[gd_scene load_steps=12 format=3 uid="uid://1x821s0twuqq"]
+
+[ext_resource type="Script" uid="uid://dy30y1m3ckcx1" path="res://start.gd" id="1_qn1rc"]
+[ext_resource type="Texture2D" uid="uid://cnrgi16timukg" path="res://sprites/start.png" id="2_1n0d2"]
+[ext_resource type="Texture2D" uid="uid://dpqb2pi87cp3y" path="res://sprites/check1.png" id="3_y5hus"]
+[ext_resource type="Texture2D" uid="uid://b7bqkgtgprye" path="res://sprites/check2.png" id="4_oiuna"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qn1rc"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1n0d2"]
+font_size = 40
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1n0d2"]
+bg_color = Color(0.972549, 0.709804, 0.0901961, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qn1rc"]
+bg_color = Color(0.972549, 0.709804, 0.0901961, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="LabelSettings" id="LabelSettings_qn1rc"]
+font_size = 50
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_y5hus"]
+font_size = 37
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y5hus"]
+
+[node name="Start" type="Node2D"]
+script = ExtResource("1_qn1rc")
+metadata/_edit_vertical_guides_ = [-221.0, -78.0]
+metadata/_edit_horizontal_guides_ = [1682.0]
+
+[node name="Hintergrund" type="Sprite2D" parent="."]
+position = Vector2(1502, 751)
+texture = ExtResource("2_1n0d2")
+
+[node name="Spielstand" type="Control" parent="Hintergrund"]
+material = SubResource("ShaderMaterial_qn1rc")
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -921.0
+offset_top = 21.0
+offset_right = -2778.0
+offset_bottom = -1265.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Taler" type="Label" parent="Hintergrund/Spielstand"]
+layout_mode = 1
+offset_right = 114.0
+offset_bottom = 69.0
+label_settings = SubResource("LabelSettings_1n0d2")
+
+[node name="HighScores" type="Label" parent="Hintergrund/Spielstand"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -34.5
+offset_right = 143.0
+offset_bottom = 34.5
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_1n0d2")
+
+[node name="Buttons" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 146.0
+offset_top = 75.0
+offset_right = 146.0
+offset_bottom = 75.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ButtonReset" type="Button" parent="Buttons"]
+layout_mode = 1
+offset_top = 228.0
+offset_right = 356.0
+offset_bottom = 327.0
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 45
+theme_override_styles/hover = SubResource("StyleBoxFlat_1n0d2")
+theme_override_styles/normal = SubResource("StyleBoxFlat_qn1rc")
+text = "Reset
+"
+
+[node name="LabelStufe" type="Label" parent="Buttons"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 463.0
+offset_right = 352.0
+offset_bottom = 532.0
+label_settings = SubResource("LabelSettings_qn1rc")
+
+[node name="ButtonStart" type="Button" parent="Buttons"]
+layout_mode = 1
+offset_right = 356.0
+offset_bottom = 99.0
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 45
+theme_override_styles/hover = SubResource("StyleBoxFlat_1n0d2")
+theme_override_styles/normal = SubResource("StyleBoxFlat_qn1rc")
+text = "Start"
+
+[node name="ButtonHilfe" type="Button" parent="Buttons"]
+layout_mode = 1
+offset_top = 114.0
+offset_right = 356.0
+offset_bottom = 213.0
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 45
+theme_override_styles/hover = SubResource("StyleBoxFlat_1n0d2")
+theme_override_styles/normal = SubResource("StyleBoxFlat_qn1rc")
+text = "Hilfe"
+
+[node name="ButtonBeenden" type="Button" parent="Buttons"]
+layout_mode = 1
+offset_top = 341.0
+offset_right = 356.0
+offset_bottom = 440.0
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 45
+theme_override_styles/hover = SubResource("StyleBoxFlat_1n0d2")
+theme_override_styles/normal = SubResource("StyleBoxFlat_qn1rc")
+text = "Benden"
+
+[node name="ButtonStufe1" type="Button" parent="Buttons"]
+layout_mode = 0
+offset_top = 557.0
+offset_right = 100.0
+offset_bottom = 656.0
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 45
+theme_override_styles/hover = SubResource("StyleBoxFlat_1n0d2")
+theme_override_styles/normal = SubResource("StyleBoxFlat_qn1rc")
+text = "1
+"
+
+[node name="ButtonStufe2" type="Button" parent="Buttons"]
+layout_mode = 0
+offset_left = 126.0
+offset_top = 558.0
+offset_right = 226.0
+offset_bottom = 657.0
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 45
+theme_override_styles/hover = SubResource("StyleBoxFlat_1n0d2")
+theme_override_styles/normal = SubResource("StyleBoxFlat_qn1rc")
+text = "2
+"
+
+[node name="ButtonStufe3" type="Button" parent="Buttons"]
+layout_mode = 0
+offset_left = 253.0
+offset_top = 557.0
+offset_right = 353.0
+offset_bottom = 656.0
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 45
+theme_override_styles/hover = SubResource("StyleBoxFlat_1n0d2")
+theme_override_styles/normal = SubResource("StyleBoxFlat_qn1rc")
+text = "3
+"
+
+[node name="LabelAccelerometer" type="Label" parent="Buttons"]
+layout_mode = 0
+offset_top = 702.0
+offset_right = 386.0
+offset_bottom = 753.0
+text = "Neigungssteuerung"
+label_settings = SubResource("LabelSettings_y5hus")
+
+[node name="CheckButtonAccelerometer" type="CheckButton" parent="Buttons"]
+layout_mode = 0
+offset_left = 105.0
+offset_top = 773.0
+offset_right = 267.0
+offset_bottom = 837.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_y5hus")
+theme_override_icons/checked = ExtResource("4_oiuna")
+theme_override_icons/unchecked = ExtResource("3_y5hus")
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="pressed" from="Buttons/ButtonReset" to="." method="_on_button_reset_pressed"]
+[connection signal="pressed" from="Buttons/ButtonStart" to="." method="_on_button_start_pressed"]
+[connection signal="pressed" from="Buttons/ButtonHilfe" to="." method="_on_button_hilfe_pressed"]
+[connection signal="pressed" from="Buttons/ButtonBeenden" to="." method="_on_button_beenden_pressed"]
+[connection signal="pressed" from="Buttons/ButtonStufe1" to="." method="_on_button_stufe_1_pressed"]
+[connection signal="pressed" from="Buttons/ButtonStufe2" to="." method="_on_button_stufe_2_pressed"]
+[connection signal="pressed" from="Buttons/ButtonStufe3" to="." method="_on_button_stufe_3_pressed"]
+[connection signal="toggled" from="Buttons/CheckButtonAccelerometer" to="." method="_on_check_button_accelerometer_toggled"]

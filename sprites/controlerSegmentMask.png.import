@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://1y4ioqmgkgcr"
+path="res://.godot/imported/controlerSegmentMask.png-b0a470b2587775dd6c574aaa994af7a2.res"
+
+[deps]
+
+source_file="res://sprites/controlerSegmentMask.png"
+dest_files=["res://.godot/imported/controlerSegmentMask.png-b0a470b2587775dd6c574aaa994af7a2.res"]
+
+[params]
+
+create_from=0
+threshold=0.5
