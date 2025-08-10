@@ -2,11 +2,11 @@ extends Node
 
 const file_path := "user://saved.dat"
 
-var act_score = 0
-var high_score1 = 0
-var high_score2 = 0
-var high_score3 = 0
-var stufe = 1
+var act_score : int = 0
+var high_score1 : int = 0
+var high_score2 : int = 0
+var high_score3 : int = 0
+var stufe : int = 1
 var is_high_score = false
 var accelometer = false
 
@@ -22,23 +22,23 @@ func load_data():
 	
 	var value = file.get_value("Stufen","Stufe")	
 	if value != null:
-		stufe = int(value)	
+		stufe = value	
 	
 	var value1 = file.get_value("Score","HighScore1")	
 	if value1 != null:
-		high_score1 = int(value1)
+		high_score1 = value1
 		
 	var value2 = file.get_value("Score","HighScore2")	
 	if value2 != null:
-		high_score2 = int(value2)
+		high_score2 = value2
 		
 	var value3 = file.get_value("Score","HighScore3")	
 	if value3 != null:
-		high_score3 = int(value3)		
+		high_score3 = value3		
 	
 	var value4 = file.get_value("Settings","Accelometer")	
 	if value4 != null:
-		if value4 == "true":
+		if value4 == true:
 			accelometer = true
 		else:
 			accelometer = false	
@@ -49,11 +49,11 @@ func save_data():
 	is_high_score = false
 	var file := ConfigFile.new()
 	
-	file.set_value("Stufen","Stufe",str(stufe))
-	file.set_value("Score","HighScore1",str(high_score1))
-	file.set_value("Score","HighScore2",str(high_score2))
-	file.set_value("Score","HighScore3",str(high_score3))
-	file.set_value("Settings","Accelometer",str(accelometer))
+	file.set_value("Stufen","Stufe",stufe)
+	file.set_value("Score","HighScore1",high_score1)
+	file.set_value("Score","HighScore2",high_score2)
+	file.set_value("Score","HighScore3",high_score3)
+	file.set_value("Settings","Accelometer",accelometer)
 	
 	var err := file.save(file_path)
 	if err != OK:		
@@ -86,9 +86,9 @@ func reset():
 	high_score3 = 0
 	act_score = 0
 	var file := ConfigFile.new()
-	file.set_value("Score","HighScore1",str(high_score1))	
-	file.set_value("Score","HighScore2",str(high_score2))	
-	file.set_value("Score","HighScore3",str(high_score3))	
+	file.set_value("Score","HighScore1",high_score1)	
+	file.set_value("Score","HighScore2",high_score2)	
+	file.set_value("Score","HighScore3",high_score3)	
 		
 	var err := file.save(file_path)
 	if err != OK:		

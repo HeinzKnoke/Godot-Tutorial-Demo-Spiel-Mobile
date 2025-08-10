@@ -8,12 +8,12 @@ func _ready():
 	set_Accelerometer_status()	
 	
 
-func _on_visibility_changed():
+func _on_visibility_changed():	
 	show_scores()
 	show_stufe()
 	
 		
-func show_scores():	
+func show_scores():			
 	var hsc = ""
 	if Score.is_high_score:
 		hsc = " das ist Highscore in Stufe "+ str(Score.stufe)
@@ -21,7 +21,7 @@ func show_scores():
 	$Hintergrund/Spielstand/Taler.text = "Du hast "+ str(Score.act_score) + " Taler erspielt" + hsc
 		
 	$Hintergrund/Spielstand/HighScores.text = "Highscores in den Stufen : " + str(Score.high_score1) +" Taler / "+ str(Score.high_score2) +" Taler / "+ str(Score.high_score3) + " Taler"
-	
+		
 
 func set_Accelerometer_status():		
 	if Score.accelometer:

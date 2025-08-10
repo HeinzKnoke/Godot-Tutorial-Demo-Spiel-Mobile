@@ -23,25 +23,22 @@ func run_game():
 	$Game.connect("game_over",on_game_over)	
 	show_node("")
 	
-		
-	
-func show_node(node_name:String): 
-	
+func show_node(node_name:String): 	
+	$Start.visible = false		
+	$Help.visible = false	
 	if node_name == "Start":			
-		$Start.visible = true	
-		$Help.visible = false						
+		$Start.visible = true			
 	
 	if node_name == "Help":
-		$Help.visible = true	
-		$Start.visible = false		
+		$Help.visible = true			
+	
 
-			
 
 func on_show_game():
 	Score.act_score = 0	
 	run_game()			
 
-func on_show_start():	
+func on_show_start():		
 	show_node("Start")		
 	
 func on_show_help():		

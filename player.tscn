@@ -15,10 +15,6 @@
 [ext_resource type="Texture2D" uid="uid://d1d0o3mtw5scw" path="res://sprites/pfeiltastenRechts.png" id="13_u1c27"]
 [ext_resource type="Texture2D" uid="uid://ru2u3fwj1o7s" path="res://sprites/pfeiltastenLinks.png" id="14_op7ga"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tj0vx"]
-radius = 31.0
-height = 82.0
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_tj0vx"]
 animations = [{
 "frames": [{
@@ -32,6 +28,10 @@ animations = [{
 "name": &"krabbeln",
 "speed": 5.0
 }]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tj0vx"]
+radius = 54.0
+height = 148.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_b26j0"]
 animations = [{
@@ -70,18 +70,18 @@ collision_layer = 8
 collision_mask = 55
 script = ExtResource("1_g2vtq")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCharacter"]
-position = Vector2(3, 2)
-rotation = 1.5708
-shape = SubResource("CapsuleShape2D_tj0vx")
-
 [node name="AnimationKrabbeln" type="AnimatedSprite2D" parent="PlayerCharacter"]
-position = Vector2(9, 2)
+position = Vector2(22, -8)
 rotation = 1.5708
 sprite_frames = SubResource("SpriteFrames_tj0vx")
 animation = &"krabbeln"
 frame = 1
 frame_progress = 0.275775
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCharacter"]
+position = Vector2(10, -9)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_tj0vx")
 
 [node name="AudioKrabbeln" type="AudioStreamPlayer2D" parent="PlayerCharacter"]
 stream = ExtResource("4_ihjo1")
@@ -90,7 +90,7 @@ stream = ExtResource("4_ihjo1")
 stream = ExtResource("5_dk1vr")
 
 [node name="AudioLebendig" type="AudioStreamPlayer2D" parent="PlayerCharacter"]
-position = Vector2(2, 1)
+position = Vector2(-24, -5)
 stream = ExtResource("6_34jf3")
 volume_db = 17.449
 
