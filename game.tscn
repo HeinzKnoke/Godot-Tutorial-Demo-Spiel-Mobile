@@ -52,14 +52,10 @@ polygon = PackedVector2Array(169.027, -53.6837, 68.0109, -52.5882, -17.0027, -42
 position = Vector2(5, 4)
 
 [node name="KugelTimer" type="Timer" parent="."]
-wait_time = 3.927
-autostart = true
 
 [node name="SternTimer" type="Timer" parent="."]
-autostart = true
 
 [node name="TalerTimer" type="Timer" parent="."]
-autostart = true
 
 [node name="AudioTaler" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_ym5sv")
