@@ -10,8 +10,6 @@ radius = 38.2099
 
 [node name="Kugel" type="CharacterBody2D" parent="."]
 z_index = 2
-collision_layer = 16
-collision_mask = 9
 script = ExtResource("1_x5ap6")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kugel"]

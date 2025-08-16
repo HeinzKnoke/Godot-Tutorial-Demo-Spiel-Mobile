@@ -6,8 +6,6 @@
 [node name="Sterne" type="Node2D"]
 
 [node name="Stern" type="Area2D" parent="."]
-collision_layer = 4
-collision_mask = 9
 script = ExtResource("1_wmgck")
 
 [node name="Sprite2D" type="Sprite2D" parent="Stern"]

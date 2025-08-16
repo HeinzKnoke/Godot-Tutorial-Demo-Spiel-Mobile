@@ -82,17 +82,6 @@ move_up_left={
 sensors/enable_accelerometer=true
 pointing/emulate_touch_from_mouse=true
 
-[layer_names]
-
-2d_render/layer_1="Boden"
-2d_render/layer_2="Kugeln"
-2d_physics/layer_1="Baumstamm"
-2d_physics/layer_2="Taler"
-2d_physics/layer_3="Sterne"
-2d_physics/layer_4="Player"
-2d_physics/layer_5="Kugeln"
-2d_physics/layer_6="Waende"
-
 [rendering]
 
 renderer/rendering_method.mobile="gl_compatibility"

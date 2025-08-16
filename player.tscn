@@ -66,8 +66,6 @@ metadata/_edit_vertical_guides_ = [251.0]
 
 [node name="PlayerCharacter" type="CharacterBody2D" parent="."]
 position = Vector2(571, 201)
-collision_layer = 8
-collision_mask = 55
 script = ExtResource("1_g2vtq")
 
 [node name="AnimationKrabbeln" type="AnimatedSprite2D" parent="PlayerCharacter"]
